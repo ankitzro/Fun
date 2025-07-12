@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeet & Sudeshna</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      gap: 80px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+
+    /* Ground */
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 20px;
+      background: linear-gradient(to right, #8B4513, #A0522D);
+    }
+
+    /* Jeet's body */
+    .boy {
+      position: relative;
+      width: 150px;
+      height: 300px;
+      background: #fcd5b4;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .boy:hover {
+      transform: translateY(-5px);
+    }
+
+    .head {
+      width: 100px;
+      height: 100px;
+      background: #ffdbac;
+      border-radius: 50%;
+      margin-top: 10px;
+      position: relative;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    }
+
+    .eye {
+      width: 12px;
+      height: 12px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 35px;
+    }
+
+    .eye.left {
+      left: 25px;
+    }
+
+    .eye.right {
+      right: 25px;
+    }
+
+    .mouth {
+      position: absolute;
+      width: 30px;
+      height: 10px;
+      border-radius: 0 0 15px 15px;
+      background: #FF6B6B;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .body {
+      width: 80px;
+      height: 120px;
+      background: #007bff;
+      margin-top: 10px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    }
+
+    .helicopter {
+      width: 60px;
+      height: 30px;
+      background: #FF5252;
+      border-radius: 15px;
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      transition: transform 0.4s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      z-index: 5;
+    }
+
+    .helicopter::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      width: 80px;
+      height: 4px;
+      background: #333;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .helicopter::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: -10px;
+      width: 15px;
+      height: 5px;
+      background: #333;
+      border-radius: 2px;
+    }
+
+    .legs {
+      display: flex;
+      justify-content: space-between;
+      width: 60px;
+      margin-top: auto;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .leg {
+      width: 20px;
+      height: 60px;
+      background: #444;
+      border-radius: 10px;
+      box-shadow: inset 0 -5px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Blade on pants */
+    .blade {
+      position: absolute;
+      width: 60px;
+      height: 10px;
+      background: silver;
+      border-radius: 5px;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .rotate-blade {
+      animation: rotateBlade 0.5s linear infinite;
+    }
+
+    @keyframes rotateBlade {
+      0% { transform: translateX(-50%) rotate(0deg); }
+      100% { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    .swing {
+      animation: swing 1s linear infinite;
+    }
+
+    @keyframes swing {
+      0% { transform: translateX(-50%) rotate(0deg); }
+      25% { transform: translateX(-50%) rotate(10deg); }
+      50% { transform: translateX(-50%) rotate(0deg); }
+      75% { transform: translateX(-50%) rotate(-10deg); }
+      100% { transform: translateX(-50%) rotate(0deg); }
+    }
+
+    .fly {
+      animation: fly 5s linear forwards;
+    }
+
+    @keyframes fly {
+      0% { 
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      100% { 
+        transform: translateX(-50%) translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .name {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Lady's hand */
+    .lady {
+      position: relative;
+      width: 120px;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lady-head {
+      width: 90px;
+      height: 90px;
+      background: #f9cbbd;
+      border-radius: 50%;
+      margin-top: 10px;
+      position: relative;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    }
+
+    .lady-eye {
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 35px;
+    }
+
+    .lady-eye.left {
+      left: 20px;
+    }
+
+    .lady-eye.right {
+      right: 20px;
+    }
+
+    .lady-mouth {
+      position: absolute;
+      width: 25px;
+      height: 8px;
+      border-radius: 0 0 12px 12px;
+      background: #FF6B6B;
+      top: 55px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .lady-body {
+      width: 70px;
+      height: 110px;
+      background: #FF4081;
+      margin-top: 10px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    }
+
+    .lady-hand {
+      width: 30px;
+      height: 100px;
+      background: #f9cbbd;
+      border-radius: 20px;
+      position: absolute;
+      right: -20px;
+      top: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      z-index: 5;
+    }
+
+    .lady-hand:hover {
+      transform: scale(1.05) translateX(5px);
+    }
+
+    .rotate-hand {
+      animation: rotateHand 0.5s ease;
+    }
+
+    @keyframes rotateHand {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(30deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .lady-legs {
+      display: flex;
+      justify-content: space-between;
+      width: 50px;
+      margin-top: auto;
+      margin-bottom: 10px;
+    }
+
+    .lady-leg {
+      width: 18px;
+      height: 50px;
+      background: #FF4081;
+      border-radius: 10px;
+      box-shadow: inset 0 -5px 5px rgba(0,0,0,0.2);
+    }
+
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      opacity: 0;
+      z-index: 20;
+    }
+
+    .heart-fly {
+      animation: heartFly 2s linear forwards;
+    }
+
+    @keyframes heartFly {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ground"></div>
+
+  <!-- Clouds -->
+  <div id="clouds"></div>
+
+  <!-- Sudeshna -->
+  <div class="container">
+    <div class="lady">
+      <div class="lady-head">
+        <div class="lady-eye left"></div>
+        <div class="lady-eye right"></div>
+        <div class="lady-mouth"></div>
+      </div>
+      <div class="lady-body">
+        <div class="lady-hand" id="ladyHand" title="Click to rotate the blade"></div>
+      </div>
+      <div class="lady-legs">
+        <div class="lady-leg"></div>
+        <div class="lady-leg"></div>
+      </div>
+    </div>
+    <div class="name">Sudeshna</div>
+  </div>
+
+  <!-- Jeet Dubey -->
+  <div class="container">
+    <div class="boy">
+      <div class="head">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="body">
+        <div class="helicopter" id="helicopter" title="Jeet's Helicopter"></div>
+      </div>
+      <div class="legs">
+        <div class="blade" id="blade"></div>
+        <div class="leg"></div>
+        <div class="leg"></div>
+      </div>
+    </div>
+    <div class="name">Jeet Dubey</div>
+  </div>
+
+  <script>
+    const helicopter = document.getElementById("helicopter");
+    const ladyHand = document.getElementById("ladyHand");
+    const blade = document.getElementById("blade");
+    const cloudsContainer = document.getElementById("clouds");
+    const body = document.body;
+
+    // Create clouds
+    function createClouds() {
+      for (let i = 0; i < 8; i++) {
+        const cloud = document.createElement("div");
+        cloud.className = "cloud";
+        
+        const size = Math.random() * 100 + 50;
+        const left = Math.random() * window.innerWidth;
+        const top = Math.random() * (window.innerHeight / 2);
+        const opacity = Math.random() * 0.5 + 0.3;
+        
+        cloud.style.width = `${size}px`;
+        cloud.style.height = `${size/2}px`;
+        cloud.style.left = `${left}px`;
+        cloud.style.top = `${top}px`;
+        cloud.style.opacity = opacity;
+        
+        cloudsContainer.appendChild(cloud);
+      }
+    }
+
+    // Create hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤";
+      
+      const left = Math.random() * 100 + 50;
+      const size = Math.random() * 20 + 10;
+      
+      heart.style.left = `${left}px`;
+      heart.style.bottom = "200px";
+      heart.style.fontSize = `${size}px`;
+      
+      body.appendChild(heart);
+      
+      setTimeout(() => {
+        heart.classList.add("heart-fly");
+      }, 10);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+
+    // Function to rotate blade
+    function rotateBlade() {
+      blade.classList.add("rotate-blade");
+      setTimeout(() => {
+        blade.classList.remove("rotate-blade");
+      }, 2000);
+    }
+
+    // Function to swing helicopter
+    function swingHelicopter() {
+      helicopter.classList.add("swing");
+      setTimeout(() => {
+        helicopter.classList.remove("swing");
+      }, 2000);
+    }
+
+    // Function to make helicopter fly away
+    function flyHelicopter() {
+      helicopter.classList.remove("swing");
+      helicopter.classList.add("fly");
+      
+      // Create hearts when helicopter flies
+      const heartInterval = setInterval(createHeart, 200);
+      
+      setTimeout(() => {
+        clearInterval(heartInterval);
+        helicopter.classList.remove("fly");
+        helicopter.style.opacity = "1";
+        helicopter.style.transform = "translateX(-50%)";
+      }, 5000);
+    }
+
+    // Clicking helicopter manually
+    helicopter.addEventListener("click", swingHelicopter);
+
+    // Clicking lady hand triggers blade rotation and helicopter
+    ladyHand.addEventListener("click", () => {
+      // Add hand rotation animation
+      ladyHand.classList.add("rotate-hand");
+      setTimeout(() => {
+        ladyHand.classList.remove("rotate-hand");
+      }, 500);
+      
+      // Rotate the blade
+      rotateBlade();
+      
+      // Swing and fly helicopter
+      swingHelicopter();
+      setTimeout(flyHelicopter, 2000);
+    });
+
+    // Create clouds when page loads
+    window.addEventListener("load", createClouds);
+  </script>
+</body>
+</html>
