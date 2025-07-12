@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Jeet & Sudeshna</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    
     body {
       background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
       display: flex;
@@ -11,10 +16,14 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
+      padding: 0;
       font-family: 'Arial', sans-serif;
-      gap: 80px;
+      gap: 20px;
       overflow: hidden;
       position: relative;
+      touch-action: manipulation;
+      transform: scale(1.2);
+      transform-origin: center bottom;
     }
 
     .container {
@@ -22,6 +31,8 @@
       flex-direction: column;
       align-items: center;
       z-index: 10;
+      flex: 1;
+      max-width: 45%;
     }
 
     /* Ground */
@@ -29,98 +40,93 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 20px;
+      height: 15px;
       background: linear-gradient(to right, #8B4513, #A0522D);
     }
 
     /* Jeet's body */
     .boy {
       position: relative;
-      width: 150px;
-      height: 300px;
+      width: 100px;
+      height: 200px;
       background: #fcd5b4;
-      border-radius: 20px;
+      border-radius: 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .boy:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
 
     .head {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
       background: #ffdbac;
       border-radius: 50%;
-      margin-top: 10px;
+      margin-top: 8px;
       position: relative;
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 -3px 7px rgba(0,0,0,0.1);
     }
 
     .eye {
-      width: 12px;
-      height: 12px;
+      width: 8px;
+      height: 8px;
       background: black;
       border-radius: 50%;
       position: absolute;
-      top: 35px;
+      top: 25px;
     }
 
     .eye.left {
-      left: 25px;
+      left: 18px;
     }
 
     .eye.right {
-      right: 25px;
+      right: 18px;
     }
 
     .mouth {
       position: absolute;
-      width: 30px;
-      height: 10px;
-      border-radius: 0 0 15px 15px;
+      width: 20px;
+      height: 7px;
+      border-radius: 0 0 10px 10px;
       background: #FF6B6B;
-      top: 60px;
+      top: 42px;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .body {
-      width: 80px;
-      height: 120px;
+      width: 55px;
+      height: 80px;
       background: #007bff;
-      margin-top: 10px;
-      border-radius: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
       position: relative;
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 -3px 7px rgba(0,0,0,0.1);
     }
 
     .helicopter {
-      width: 60px;
-      height: 30px;
+      width: 40px;
+      height: 20px;
       background: #FF5252;
-      border-radius: 15px;
+      border-radius: 10px;
       position: absolute;
-      top: 90px;
+      top: 60px;
       left: 50%;
       transform: translateX(-50%);
       cursor: pointer;
       transition: transform 0.4s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 7px rgba(0,0,0,0.2);
       z-index: 5;
     }
 
     .helicopter::before {
       content: "";
       position: absolute;
-      top: -15px;
+      top: -10px;
       left: 50%;
-      width: 80px;
-      height: 4px;
+      width: 55px;
+      height: 3px;
       background: #333;
       transform: translateX(-50%);
       border-radius: 2px;
@@ -129,10 +135,10 @@
     .helicopter::after {
       content: "";
       position: absolute;
-      top: 5px;
-      right: -10px;
-      width: 15px;
-      height: 5px;
+      top: 3px;
+      right: -7px;
+      width: 10px;
+      height: 3px;
       background: #333;
       border-radius: 2px;
     }
@@ -140,32 +146,32 @@
     .legs {
       display: flex;
       justify-content: space-between;
-      width: 60px;
+      width: 40px;
       margin-top: auto;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
       position: relative;
     }
 
     .leg {
-      width: 20px;
-      height: 60px;
+      width: 13px;
+      height: 40px;
       background: #444;
-      border-radius: 10px;
-      box-shadow: inset 0 -5px 5px rgba(0,0,0,0.2);
+      border-radius: 7px;
+      box-shadow: inset 0 -3px 4px rgba(0,0,0,0.2);
     }
 
     /* Blade on pants */
     .blade {
       position: absolute;
-      width: 60px;
-      height: 10px;
+      width: 40px;
+      height: 7px;
       background: silver;
-      border-radius: 5px;
-      top: -15px;
+      border-radius: 3px;
+      top: -10px;
       left: 50%;
       transform: translateX(-50%);
       transform-origin: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
 
     .rotate-blade {
@@ -205,87 +211,88 @@
     }
 
     .name {
-      margin-top: 15px;
-      font-size: 20px;
+      margin-top: 10px;
+      font-size: 14px;
       font-weight: bold;
       color: #333;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
     /* Lady's hand */
     .lady {
       position: relative;
-      width: 120px;
-      height: 300px;
+      width: 80px;
+      height: 200px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     .lady-head {
-      width: 90px;
-      height: 90px;
+      width: 60px;
+      height: 60px;
       background: #f9cbbd;
       border-radius: 50%;
-      margin-top: 10px;
+      margin-top: 8px;
       position: relative;
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 -3px 7px rgba(0,0,0,0.1);
     }
 
     .lady-eye {
-      width: 10px;
-      height: 10px;
+      width: 7px;
+      height: 7px;
       background: black;
       border-radius: 50%;
       position: absolute;
-      top: 35px;
+      top: 25px;
     }
 
     .lady-eye.left {
-      left: 20px;
+      left: 15px;
     }
 
     .lady-eye.right {
-      right: 20px;
+      right: 15px;
     }
 
     .lady-mouth {
       position: absolute;
-      width: 25px;
-      height: 8px;
-      border-radius: 0 0 12px 12px;
+      width: 18px;
+      height: 6px;
+      border-radius: 0 0 8px 8px;
       background: #FF6B6B;
-      top: 55px;
+      top: 37px;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .lady-body {
-      width: 70px;
-      height: 110px;
+      width: 50px;
+      height: 75px;
       background: #FF4081;
-      margin-top: 10px;
-      border-radius: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
       position: relative;
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 -3px 7px rgba(0,0,0,0.1);
     }
 
     .lady-hand {
-      width: 30px;
-      height: 100px;
+      width: 20px;
+      height: 65px;
       background: #f9cbbd;
-      border-radius: 20px;
+      border-radius: 15px;
       position: absolute;
-      right: -20px;
-      top: 30px;
+      right: -15px;
+      top: 20px;
       cursor: pointer;
       transition: transform 0.2s ease;
-      box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+      box-shadow: inset 0 -3px 7px rgba(0,0,0,0.1);
       z-index: 5;
     }
 
-    .lady-hand:hover {
-      transform: scale(1.05) translateX(5px);
+    .lady-hand:hover, .lady-hand:active {
+      transform: scale(1.05) translateX(3px);
     }
 
     .rotate-hand {
@@ -301,17 +308,17 @@
     .lady-legs {
       display: flex;
       justify-content: space-between;
-      width: 50px;
+      width: 35px;
       margin-top: auto;
-      margin-bottom: 10px;
+      margin-bottom: 7px;
     }
 
     .lady-leg {
-      width: 18px;
-      height: 50px;
+      width: 12px;
+      height: 35px;
       background: #FF4081;
-      border-radius: 10px;
-      box-shadow: inset 0 -5px 5px rgba(0,0,0,0.2);
+      border-radius: 7px;
+      box-shadow: inset 0 -3px 4px rgba(0,0,0,0.2);
     }
 
     .cloud {
@@ -324,10 +331,11 @@
 
     .heart {
       position: absolute;
-      font-size: 20px;
+      font-size: 14px;
       color: red;
       opacity: 0;
       z-index: 20;
+      pointer-events: none;
     }
 
     .heart-fly {
@@ -340,7 +348,7 @@
         opacity: 1;
       }
       100% {
-        transform: translateY(-100px);
+        transform: translateY(-70px);
         opacity: 0;
       }
     }
@@ -400,11 +408,11 @@
 
     // Create clouds
     function createClouds() {
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 5; i++) {
         const cloud = document.createElement("div");
         cloud.className = "cloud";
         
-        const size = Math.random() * 100 + 50;
+        const size = Math.random() * 60 + 30;
         const left = Math.random() * window.innerWidth;
         const top = Math.random() * (window.innerHeight / 2);
         const opacity = Math.random() * 0.5 + 0.3;
@@ -425,11 +433,11 @@
       heart.className = "heart";
       heart.innerHTML = "❤";
       
-      const left = Math.random() * 100 + 50;
-      const size = Math.random() * 20 + 10;
+      const left = Math.random() * 80 + 30;
+      const size = Math.random() * 14 + 8;
       
       heart.style.left = `${left}px`;
-      heart.style.bottom = "200px";
+      heart.style.bottom = "150px";
       heart.style.fontSize = `${size}px`;
       
       body.appendChild(heart);
@@ -494,8 +502,31 @@
       setTimeout(flyHelicopter, 2000);
     });
 
+    // Touch support for mobile
+    ladyHand.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      ladyHand.classList.add("rotate-hand");
+      rotateBlade();
+      swingHelicopter();
+      setTimeout(flyHelicopter, 2000);
+      setTimeout(() => ladyHand.classList.remove("rotate-hand"), 500);
+    });
+
     // Create clouds when page loads
     window.addEventListener("load", createClouds);
+
+    // Adjust scaling based on screen size
+    function adjustScale() {
+      const scale = Math.min(
+        window.innerWidth / 400,
+        window.innerHeight / 500,
+        1.5
+      );
+      document.body.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener("resize", adjustScale);
+    adjustScale();
   </script>
 </body>
 </html>
