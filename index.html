@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,179 +9,230 @@
       font-family: 'Segoe UI', sans-serif;
       background: #f1f5f9;
       color: #222;
-    }
+    }header {
+  background: #1976d2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 
-    header {
-      background: #1976d2;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.exam-info {
+  background: #e3f2fd;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0d47a1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
 
-    .exam-info {
-      background: #e3f2fd;
-      padding: 10px 20px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 500;
-      color: #0d47a1;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
 
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
+h2 {
+  border-left: 5px solid #1976d2;
+  padding-left: 10px;
+  color: #1976d2;
+  margin-top: 30px;
+}
 
-    h2 {
-      border-left: 5px solid #1976d2;
-      padding-left: 10px;
-      color: #1976d2;
-      margin-top: 30px;
-    }
+.question {
+  margin: 20px 0;
+}
 
-    .question {
-      margin: 20px 0;
-    }
+.options {
+  margin-top: 8px;
+  padding-left: 20px;
+}
 
-    .options {
-      margin-top: 8px;
-      padding-left: 20px;
-    }
+.long-answer, .very-short-answer, .or-section {
+  background: #f9f9f9;
+  padding: 12px;
+  border-left: 4px solid #4caf50;
+  border-radius: 6px;
+}
 
-    .long-answer {
-      background: #f9f9f9;
-      padding: 12px;
-      border-left: 4px solid #4caf50;
-      border-radius: 6px;
-    }
+.instructions {
+  background: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border-left: 4px solid #ffecb5;
+  border-radius: 8px;
+  margin-top: 20px;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        margin: 10px;
-        padding: 15px;
-      }
+.timer-box {
+  text-align: center;
+  margin: 30px auto;
+  font-size: 20px;
+  color: #c62828;
+  font-weight: bold;
+}
 
-      header {
-        font-size: 20px;
-      }
+.hidden {
+  display: none;
+}
 
-      .exam-info {
-        font-size: 14px;
-      }
-    }
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  header {
+    font-size: 20px;
+  }
+
+  .exam-info {
+    font-size: 14px;
+  }
+}
+
   </style>
 </head>
 <body>
-  <header>Ankit Babu Ka Exam</header>
-
-  <div class="exam-info">
+  <header>Ankit Babu Ka Exam</header>  <div class="exam-info">
     📝 <strong>Full Marks:</strong> 40  ✅ <strong>Passing Marks:</strong> 35  ⏰ <strong>Time:</strong> 1:30 Hours
+  </div>  <div class="timer-box" id="timerBox">
+    Question paper will be available at 12:00 AM today.
+    <br>
+    Time remaining: <span id="countdown"></span>
+  </div>  <div class="container hidden" id="questionPaper">
+    <div class="instructions">
+      <strong>Instructions:</strong><br>
+      1. All questions are compulsory except where options are given as <strong>OR</strong>.<br>
+      2. The paper is divided into 5 sections:<br>
+      - Section A: Very Short Answer (4×1 = 4 Marks)<br>
+      - Section B: MCQs (6×1 = 6 Marks)<br>
+      - Section C: Assertion & Reasoning (2×2 = 4 Marks)<br>
+      - Section D: Short Answer (4×3 = 12 Marks)<br>
+      - Section E: Long Answer (2×6 = 12 Marks)
+    </div><h2>Section A – Very Short Answer (4×1 = 4 Marks)</h2>
+<div class="question very-short-answer">1. What is the full form of GIS?</div>
+<div class="question very-short-answer">2. Name the outermost layer of the Earth.</div>
+<div class="question very-short-answer">3. Which is the densest planet in our solar system?</div>
+<div class="question very-short-answer">4. Define human geography in one sentence.</div>
+
+<h2>Section B – MCQs (6×1 = 6 Marks)</h2>
+<div class="question">
+  5. Which branch of geography deals with spatial aspects of human existence?
+  <div class="options">
+    a) Climatology  b) Geomorphology  c) Human Geography  d) Oceanography
   </div>
+</div>
 
-  <div class="container">
-    <h2>Section A – MCQs (1×6 = 6 Marks)</h2>
-
-    <div class="question">
-      1. Which branch of geography deals with spatial aspects of human existence?
-      <div class="options">
-        a) Climatology  b) Geomorphology  c) Human Geography  d) Oceanography
-      </div>
-    </div>
-
-    <div class="question">
-      2. Which theory explains the origin of the solar system?
-      <div class="options">
-        a) Nebular Hypothesis  b) Big Bang Theory  c) Tidal Hypothesis  d) Drift Theory
-      </div>
-    </div>
-
-    <div class="question">
-      3. Which of the following is not an indirect source of information about the Earth’s interior?
-      <div class="options">
-        a) Seismic activity  b) Volcanic eruptions  c) Gravitational force  d) Rock samples from Earth’s crust
-      </div>
-    </div>
-
-    <div class="question">
-      4. The intensity of earthquake is measured by:
-      <div class="options">
-        a) Richter Scale  b) Mercalli Scale  c) Beaufort Scale  d) Fujita Scale
-      </div>
-    </div>
-
-    <div class="question">
-      5. Which layer of Earth is called the ‘mantle’?
-      <div class="options">
-        a) 0–35 km  b) 35–2900 km  c) 2900–5100 km  d) 5100–6371 km
-      </div>
-    </div>
-
-    <div class="question">
-      6. The discipline of geography is mainly concerned with:
-      <div class="options">
-        a) Solar studies  b) Spatial variation  c) Chemical evolution  d) Social justice
-      </div>
-    </div>
-
-    <h2>Section B – Assertion & Reasoning (2×2 = 4 Marks)</h2>
-
-    <div class="question">
-      7. A: Earthquakes help in understanding the internal structure of the Earth.  
-      <br>
-      R: Seismic waves behave differently in different materials.  
-      <br><b>Choose the correct option:</b><br>
-      a) Both A and R are true and R is the correct explanation of A.  
-      b) Both A and R are true but R is not the correct explanation of A.  
-      c) A is true but R is false.  
-      d) A is false but R is true.
-    </div>
-
-    <div class="question">
-      8. A: Geography is a subject of both natural and social sciences.  
-      <br>
-      R: Geography does not use tools from any other discipline.  
-      <br><b>Choose the correct option:</b><br>
-      a) Both A and R are true and R is the correct explanation of A.  
-      b) Both A and R are true but R is not the correct explanation of A.  
-      c) A is true but R is false.  
-      d) A is false but R is true.
-    </div>
-
-    <h2>Section C – Short Answer (3×4 = 12 Marks)</h2>
-
-    <div class="question long-answer">
-      9. Explain any three differences between Physical Geography and Human Geography.
-    </div>
-
-    <div class="question long-answer">
-      10. Describe any three evidences that support the Nebular Hypothesis.
-    </div>
-
-    <div class="question long-answer">
-      11. Describe the composition and temperature of different layers of Earth’s interior.
-    </div>
-
-    <h2>Section D – Long Answer (6×3 = 18 Marks)</h2>
-
-    <div class="question long-answer">
-      12. “Geography is an integrative discipline.” Explain this statement with suitable examples.
-    </div>
-
-    <div class="question long-answer">
-      13. Discuss the Big Bang Theory in detail. How does it explain the origin of the universe?
-    </div>
-
-    <div class="question long-answer">
-      14. With a neat diagram, explain the classification of seismic waves and how they help in the study of Earth's interior.
-    </div>
+<div class="question">
+  6. Which theory explains the origin of the solar system?
+  <div class="options">
+    a) Nebular Hypothesis  b) Big Bang Theory  c) Tidal Hypothesis  d) Drift Theory
   </div>
-</body>
+</div>
+
+<div class="question">
+  7. Which of the following is not an indirect source of information about the Earth’s interior?
+  <div class="options">
+    a) Seismic activity  b) Volcanic eruptions  c) Gravitational force  d) Rock samples from crust
+  </div>
+</div>
+
+<div class="question">
+  8. The intensity of earthquake is measured by:
+  <div class="options">
+    a) Richter Scale  b) Mercalli Scale  c) Beaufort Scale  d) Fujita Scale
+  </div>
+</div>
+
+<div class="question">
+  9. Which layer of Earth is called the ‘mantle’?
+  <div class="options">
+    a) 0–35 km  b) 35–2900 km  c) 2900–5100 km  d) 5100–6371 km
+  </div>
+</div>
+
+<div class="question">
+  10. Geography is mainly concerned with:
+  <div class="options">
+    a) Solar studies  b) Spatial variation  c) Chemical evolution  d) Social justice
+  </div>
+</div>
+
+<h2>Section C – Assertion & Reasoning (2×2 = 4 Marks)</h2>
+<div class="question">
+  11. A: Earthquakes help in understanding Earth’s internal structure. <br>
+  R: Seismic waves behave differently in different materials. <br>
+  a) Both A and R are true and R is the correct explanation of A. <br>
+  b) Both A and R are true but R is not the correct explanation. <br>
+  c) A is true but R is false. <br>
+  d) A is false but R is true.
+</div>
+
+<div class="question">
+  12. A: Geography is a physical science only. <br>
+  R: It includes only environmental studies. <br>
+  a) Both A and R are true and R is the correct explanation of A. <br>
+  b) Both A and R are true but R is not the correct explanation. <br>
+  c) A is true but R is false. <br>
+  d) A is false but R is true.
+</div>
+
+<h2>Section D – Short Answer (4×3 = 12 Marks)</h2>
+<div class="question long-answer">
+  13. State three key features of human geography.
+</div>
+<div class="question long-answer">
+  14. Write three differences between crust and mantle.
+</div>
+<div class="question long-answer">
+  15. Describe any three evidences that support the Nebular Hypothesis.
+</div>
+<div class="question long-answer">
+  16. What are the three types of seismic waves and how are they different?
+</div>
+
+<h2>Section E – Long Answer (2×6 = 12 Marks)</h2>
+<div class="question long-answer">
+  17. “Geography is an integrative discipline.” Explain this statement with suitable examples.<br><br>
+  <div class="or-section"><strong>OR</strong><br>
+  Discuss the relationship of Geography with other subjects like History, Economics and Sociology.</div>
+</div>
+
+<div class="question long-answer">
+  18. Explain the internal structure of Earth with a neat diagram.<br><br>
+  <div class="or-section"><strong>OR</strong><br>
+  Describe the Big Bang Theory and how it explains the origin of the universe.</div>
+</div>
+
+  </div>  <script>
+    // Set countdown to next 12 AM today
+    const now = new Date();
+    let target = new Date();
+    target.setHours(24, 0, 0, 0);
+
+    const countdown = document.getElementById("countdown");
+    const timerBox = document.getElementById("timerBox");
+    const questionPaper = document.getElementById("questionPaper");
+
+    const interval = setInterval(() => {
+      const diff = target - new Date();
+      if (diff <= 0) {
+        clearInterval(interval);
+        timerBox.style.display = "none";
+        questionPaper.classList.remove("hidden");
+        return;
+      }
+      const hrs = Math.floor(diff / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+      countdown.innerText = `${hrs}h ${mins}m ${secs}s`;
+    }, 1000);
+  </script></body>
 </html>
