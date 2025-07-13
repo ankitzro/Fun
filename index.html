@@ -70,18 +70,6 @@ h2 {
   margin-top: 20px;
 }
 
-.timer-box {
-  text-align: center;
-  margin: 30px auto;
-  font-size: 20px;
-  color: #c62828;
-  font-weight: bold;
-}
-
-.hidden {
-  display: none;
-}
-
 @media (max-width: 600px) {
   .container {
     margin: 10px;
@@ -102,11 +90,7 @@ h2 {
 <body>
   <header>Ankit Babu Ka Exam</header>  <div class="exam-info">
     📝 <strong>Full Marks:</strong> 40  ✅ <strong>Passing Marks:</strong> 35  ⏰ <strong>Time:</strong> 1:30 Hours
-  </div>  <div class="timer-box" id="timerBox">
-    Question paper will be available at 12:00 AM today.
-    <br>
-    Time remaining: <span id="countdown"></span>
-  </div>  <div class="container hidden" id="questionPaper">
+  </div>  <div class="container">
     <div class="instructions">
       <strong>Instructions:</strong><br>
       1. All questions are compulsory except where options are given as <strong>OR</strong>.<br>
@@ -211,28 +195,6 @@ h2 {
   Describe the Big Bang Theory and how it explains the origin of the universe.</div>
 </div>
 
-  </div>  <script>
-    // Set countdown to next 12 AM today
-    const now = new Date();
-    let target = new Date();
-    target.setHours(24, 0, 0, 0);
-
-    const countdown = document.getElementById("countdown");
-    const timerBox = document.getElementById("timerBox");
-    const questionPaper = document.getElementById("questionPaper");
-
-    const interval = setInterval(() => {
-      const diff = target - new Date();
-      if (diff <= 0) {
-        clearInterval(interval);
-        timerBox.style.display = "none";
-        questionPaper.classList.remove("hidden");
-        return;
-      }
-      const hrs = Math.floor(diff / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((diff % (1000 * 60)) / 1000);
-      countdown.innerText = `${hrs}h ${mins}m ${secs}s`;
-    }, 1000);
-  </script></body>
+  </div>
+</body>
 </html>
